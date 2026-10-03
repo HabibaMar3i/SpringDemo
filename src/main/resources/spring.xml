@@ -4,11 +4,11 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- bean definitions here -->
-
-    <bean id="alien" class="org.example.Alien">
+    <!--Singleton is the default created object once but in prototype it creates multiple objects-->
+    <bean id="alien" class="org.example.Alien" scope="prototype">
     </bean>
-    <bean id="alien1" class="org.example.Alien">
-    </bean>
+    <!-- <bean id="alien1" class="org.example.Alien">-->
+    <!-- </bean>-->
     <bean id="laptop" class="org.example.Laptop">
     </bean>
 </beans>

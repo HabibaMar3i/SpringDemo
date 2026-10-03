@@ -17,9 +17,12 @@ public class App
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
         Alien obj = (Alien) context.getBean("alien");
         obj.code();
+        obj.age = 22;
+        System.out.println(obj.age);
 
         Alien obj1 = (Alien) context.getBean("alien");
         obj1.code();
+        System.out.println(obj1.age);
 
     }
 }
