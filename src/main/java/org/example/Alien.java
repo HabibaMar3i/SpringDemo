@@ -1,5 +1,7 @@
 package org.example;
 
+import java.beans.ConstructorProperties;
+
 public class Alien {
     private int age;
     public int getAge() {
@@ -14,6 +16,12 @@ public class Alien {
     public Laptop getLap() {
         return lap;
     }
+    @ConstructorProperties({"age", "lap"})
+    public Alien(int age, Laptop lap) {
+        this.age = age;
+        this.lap = lap;
+    }
+
     public void setLap(Laptop lap) {
         System.out.println("lap setter called");
         this.lap = lap;

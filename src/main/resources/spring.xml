@@ -8,8 +8,28 @@
 <!--    <bean id="alien" class="org.example.Alien" scope="prototype">-->
 <!--    </bean>-->
     <bean id="alien" class="org.example.Alien">
-        <property name="age" value="22"/>
-        <property name="lap" ref="laptop"/>
+        <!--        <property name="age" value="22"/>-->
+        <!--        <property name="lap" ref="laptop"/>-->
+
+        <!-- Positional (no index/name): Spring matches args to constructor params in declaration order.
+             Fragile: breaks if the constructor's parameter order changes. -->
+        <!--        <constructor-arg value="25"/>-->
+        <!--        <constructor-arg ref="laptop"/>-->
+
+        <!-- index: explicitly says "this value goes to the 1st param (0), this ref to the 2nd (1)".
+             Order in the XML no longer matters, but the index must match the constructor. -->
+        <!--        <constructor-arg index="0" value="23"/>-->
+        <!--        <constructor-arg index="1" ref="laptop"/>-->
+
+        <!-- name: matches by the constructor parameter's name (here "lap" and "age").
+             Most readable, but needs the @ConstructorProperties annotation). -->
+        <!--        <constructor-arg name="lap" ref="laptop" />-->
+        <!--        <constructor-arg name="age" value="24" />-->
+
+        <!-- type (ACTIVE): matches by the parameter's Java type. "int" tells Spring to inject 22 into the int param.
+             Breaks down if the constructor has two params of the same type. -->
+        <constructor-arg type="int" value="22"/>
+        <constructor-arg type="org.example.Laptop" ref="laptop"/>
     </bean>
     <!-- <bean id="alien1" class="org.example.Alien">-->
     <!-- </bean>-->
