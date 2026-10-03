@@ -9,6 +9,7 @@
 <!--    </bean>-->
     <bean id="alien" class="org.example.Alien">
         <property name="age" value="22"/>
+        <property name="lap" ref="laptop"/>
     </bean>
     <!-- <bean id="alien1" class="org.example.Alien">-->
     <!-- </bean>-->
