@@ -2,7 +2,7 @@ package org.example;
 
 import java.beans.ConstructorProperties;
 
-public class Alien {
+public class Alien{
     private int age;
     public int getAge() {
         return age;
@@ -12,26 +12,24 @@ public class Alien {
         this.age = age;
     }
     //    private Laptop lap = new Laptop();
-    private Laptop lap;
-    public Laptop getLap() {
-        return lap;
+    private Computer com;
+    public Computer getCom() {
+        return com;
+    }
+    public void setCom(Computer com) {
+        this.com = com;
     }
     @ConstructorProperties({"age", "lap"})
-    public Alien(int age, Laptop lap) {
+    public Alien(int age, Computer com) {
         this.age = age;
-        this.lap = lap;
+        this.com = com;
     }
 
-    public void setLap(Laptop lap) {
-        System.out.println("lap setter called");
-        this.lap = lap;
-    }
     public Alien(){
         System.out.println("Alien object created");
     }
     public void code(){
         System.out.println("Coding..");
-        lap.compile();
+        com.compile();
     }
-
 }
