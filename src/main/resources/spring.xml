@@ -7,9 +7,9 @@
     <!--Singleton is the default created object once but in prototype it creates multiple objects-->
 <!--    <bean id="alien" class="org.example.Alien" scope="prototype">-->
 <!--    </bean>-->
-    <bean id="alien" class="org.example.Alien">
-        <!--        <property name="age" value="22"/>-->
-        <!--        <property name="lap" ref="laptop"/>-->
+    <bean id="alien" class="org.example.Alien" autowire="byType">
+                <property name="age" value="22"/>
+<!--                <property name="lap" ref="laptop"/>-->
 
         <!-- Positional (no index/name): Spring matches args to constructor params in declaration order.
              Fragile: breaks if the constructor's parameter order changes. -->
@@ -28,11 +28,13 @@
 
         <!-- type (ACTIVE): matches by the parameter's Java type. "int" tells Spring to inject 22 into the int param.
              Breaks down if the constructor has two params of the same type. -->
-        <constructor-arg type="int" value="22"/>
-        <constructor-arg type="org.example.Laptop" ref="laptop"/>
+<!--        <constructor-arg type="int" value="22"/>-->
+<!--        <constructor-arg type="org.example.Laptop" ref="laptop"/>-->
     </bean>
-    <!-- <bean id="alien1" class="org.example.Alien">-->
-    <!-- </bean>-->
-    <bean id="laptop" class="org.example.Laptop">
+<!--     <bean id="alien1" class="org.example.Alien">-->
+<!--     </bean>-->
+    <bean id="com1" class="org.example.Laptop" primary="true">
+    </bean>
+    <bean id="com2" class="org.example.Desktop">
     </bean>
 </beans>
