@@ -20,7 +20,6 @@ public class AppConfig {
     @Bean
     public Alien alien(@Qualifier("desktop") Computer com){
         Alien obj = new Alien();
-        obj.setAge(24);
         obj.setCom(com);
         return obj;
     }
